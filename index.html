@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Ops: Wildfire | Kickstarter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fire: {
+                            50: '#fff5ec',
+                            100: '#ffe8d3',
+                            200: '#ffceaa',
+                            300: '#ffae75',
+                            400: '#fd8336',
+                            500: '#fc630a',
+                            600: '#ed4c04',
+                            700: '#c53805',
+                            800: '#9c2d0c',
+                            900: '#7e270e',
+                            950: '#441105',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom glow effect for buttons */
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(252, 99, 10, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-200 font-sans antialiased selection:bg-fire-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-gray-950/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="flame" class="text-fire-500 h-8 w-8"></i>
+                    <span class="text-xl font-bold tracking-wider text-white">RESCUE OPS</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.rescueopsgame.com/en/" target="_blank" class="text-sm text-gray-400 hover:text-white transition">Website</a>
+                    <a href="https://store.steampowered.com/app/2915770/Rescue_Ops_Wildfire/" target="_blank" class="text-sm text-gray-400 hover:text-white transition">Steam</a>
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 text-sm font-bold bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md transition text-white border border-white/20">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <span id="lang-btn-text">FR</span>
+                    </button>
+                    <a href="https://www.kickstarter.com/projects/1556468747/rescue-ops-wildfire-a-co-op-firefighting-simulation-game?ref=4nr3z4" target="_blank" class="hidden md:inline-flex bg-fire-600 hover:bg-fire-500 text-white px-4 py-2 rounded-md text-sm font-bold transition glow-button items-center space-x-2">
+                        <span id="nav-ks-text">Back on Kickstarter</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Neutral Background) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-800 to-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <!-- ENGLISH HERO -->
+            <div id="hero-en">
+                <div class="inline-flex items-center space-x-2 bg-fire-950/80 border border-fire-500/30 text-fire-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-fire-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-fire-500"></span>
+                    </span>
+                    <span>Kickstarter Campaign Coming Soon!</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 uppercase drop-shadow-lg">
+                    Face the <span class="text-transparent bg-clip-text bg-gradient-to-r from-fire-400 to-fire-600">Flames.</span><br> Together.
+                </h1>
+                
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300 mb-10">
+                    Join the frontline in <strong>Rescue Ops: Wildfire</strong>. A realistic, high-stakes co-op firefighting simulation game where teamwork is your only lifeline.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://www.kickstarter.com/projects/1556468747/rescue-ops-wildfire-a-co-op-firefighting-simulation-game?ref=4nr3z4" target="_blank" class="bg-fire-600 hover:bg-fire-500 text-white px-8 py-4 rounded-lg text-lg font-bold transition glow-button flex items-center justify-center space-x-2">
+                        <i data-lucide="bell-ring" class="w-5 h-5"></i>
+                        <span>Notify Me on Kickstarter</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- FRENCH HERO -->
+            <div id="hero-fr" class="hidden">
+                <div class="inline-flex items-center space-x-2 bg-fire-950/80 border border-fire-500/30 text-fire-400 px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-fire-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-fire-500"></span>
+                    </span>
+                    <span>Campagne Kickstarter Bientôt Disponible !</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 uppercase drop-shadow-lg">
+                    Affrontez les <span class="text-transparent bg-clip-text bg-gradient-to-r from-fire-400 to-fire-600">Flammes.</span><br> Ensemble.
+                </h1>
+                
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300 mb-10">
+                    Rejoignez la première ligne dans <strong>Rescue Ops: Wildfire</strong>. Un jeu de simulation de pompiers en coop réaliste où le travail d'équipe est votre seule bouée de sauvetage.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://www.kickstarter.com/projects/1556468747/rescue-ops-wildfire-a-co-op-firefighting-simulation-game?ref=4nr3z4" target="_blank" class="bg-fire-600 hover:bg-fire-500 text-white px-8 py-4 rounded-lg text-lg font-bold transition glow-button flex items-center justify-center space-x-2">
+                        <i data-lucide="bell-ring" class="w-5 h-5"></i>
+                        <span>M'avertir sur Kickstarter</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tiers Section -->
+    <section class="py-20 bg-gray-900 border-t border-white/5" id="tiers">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- ENGLISH TIERS -->
+            <div id="tiers-en">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Choose Your Rank</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Support the development of Rescue Ops: Wildfire and secure exclusive digital rewards, early access peeks, and a chance to leave your mark in the game.</p>
+                </div>
+
+                <!-- Tiers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
+                    
+                    <!-- Tier 1 -->
+                    <div class="bg-gray-800 rounded-2xl border border-white/10 p-6 flex flex-col hover:border-fire-500/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-white mb-2">Volunteer Responder</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">€10</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Supporter Discord Role</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> In-Game Credits Mention</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> High-Res Wallpapers</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="bg-gray-800 rounded-2xl border border-fire-500/30 p-6 flex flex-col relative transform hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(237,76,4,0.1)]">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-fire-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Base Game
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-2">Frontline Firefighter</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">€30</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start text-white font-semibold"><i data-lucide="key" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> 1x Official Steam Key</li>
+                            <li class="flex items-start"><i data-lucide="sparkles" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Kickstarter Exclusive Cosmetic</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> All previous rewards</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="bg-gray-800 rounded-2xl border border-white/10 p-6 flex flex-col hover:border-fire-500/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-white mb-2">Strike Team Leader</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">€65</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="music" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Official Soundtrack (OST)</li>
+                            <li class="flex items-start"><i data-lucide="book-open" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Digital Artbook</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> All previous rewards</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 4 -->
+                    <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border-2 border-fire-500 p-6 flex flex-col relative transform xl:-translate-y-4 hover:-translate-y-6 transition duration-300 shadow-[0_0_40px_rgba(237,76,4,0.2)]">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-fire-400 to-fire-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide flex items-center space-x-1">
+                            <i data-lucide="star" class="w-3 h-3"></i>
+                            <span>Squad Pack Value</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-2">Battalion Chief</h3>
+                        <div class="text-3xl font-extrabold text-fire-400 mb-6">€100</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-200">
+                            <li class="flex items-start font-bold text-white"><i data-lucide="users" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> +2 Extra Steam Keys (3 Total!)</li>
+                            <li class="flex items-start"><i data-lucide="user-check" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Name/Pseudo on In-Game Locker</li>
+                            <li class="flex items-start"><i data-lucide="message-square" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> VIP Backstage Discord Access</li>
+                            <li class="flex items-start"><i data-lucide="lightbulb" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Priority Idea Submission</li>
+                            <li class="flex items-start"><i data-lucide="gift" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Digital Goodies Pack</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> All previous rewards</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 5 -->
+                    <div class="bg-gray-800 rounded-2xl border border-amber-500/50 p-6 flex flex-col hover:border-amber-400 transition duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-bl-full"></div>
+                        <h3 class="text-xl font-bold text-amber-500 mb-2">Incident Commander</h3>
+                        <div class="text-3xl font-extrabold text-amber-500 mb-6">€200</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="map" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Name a Mission</li>
+                            <li class="flex items-start"><i data-lucide="mic" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Record Custom Scenario Audio</li>
+                            <li class="flex items-start"><i data-lucide="radio" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Background Radio Voice Chatter</li>
+                            <li class="flex items-start"><i data-lucide="gamepad-2" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Play Session with the Devs</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> All previous rewards</li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="https://www.kickstarter.com/projects/1556468747/rescue-ops-wildfire-a-co-op-firefighting-simulation-game?ref=4nr3z4" target="_blank" class="inline-flex items-center justify-center space-x-2 bg-fire-600 hover:bg-fire-500 text-white px-10 py-5 rounded-xl text-xl font-bold transition glow-button shadow-xl">
+                        <span>Subscribe to the Kickstarter</span>
+                        <i data-lucide="external-link" class="w-6 h-6"></i>
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500">Secure your rewards before the campaign goes live!</p>
+                </div>
+            </div>
+
+            <!-- FRENCH TIERS -->
+            <div id="tiers-fr" class="hidden">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Choisissez Votre Grade</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Soutenez le développement de Rescue Ops: Wildfire et obtenez des récompenses numériques exclusives, un accès anticipé et une chance de laisser votre marque dans le jeu.</p>
+                </div>
+
+                <!-- French Tiers Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6">
+                    
+                    <!-- Tier 1 -->
+                    <div class="bg-gray-800 rounded-2xl border border-white/10 p-6 flex flex-col hover:border-fire-500/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-white mb-2">Intervenant Volontaire</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">10€</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> (Discord) Grade Support</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Crédit dans le jeu</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Fond d'écran (HR)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 2 -->
+                    <div class="bg-gray-800 rounded-2xl border border-fire-500/30 p-6 flex flex-col relative transform hover:-translate-y-1 transition duration-300 shadow-[0_0_30px_rgba(237,76,4,0.1)]">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-fire-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Jeu de Base
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-2">Pompier Première Ligne</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">30€</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start text-white font-semibold"><i data-lucide="key" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Clé du jeu Officiel</li>
+                            <li class="flex items-start"><i data-lucide="sparkles" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Cosmetic Special KickStarter</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> Toutes les récompenses précédentes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="bg-gray-800 rounded-2xl border border-white/10 p-6 flex flex-col hover:border-fire-500/50 transition duration-300">
+                        <h3 class="text-xl font-bold text-white mb-2">Chef d'Équipe</h3>
+                        <div class="text-3xl font-extrabold text-fire-500 mb-6">65€</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="music" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Son du jeu (OST)</li>
+                            <li class="flex items-start"><i data-lucide="book-open" class="w-5 h-5 text-green-500 mr-2 shrink-0"></i> Artbook numérique</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> Toutes les récompenses précédentes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 4 -->
+                    <div class="bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl border-2 border-fire-500 p-6 flex flex-col relative transform xl:-translate-y-4 hover:-translate-y-6 transition duration-300 shadow-[0_0_40px_rgba(237,76,4,0.2)]">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-fire-400 to-fire-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide flex items-center space-x-1">
+                            <i data-lucide="star" class="w-3 h-3"></i>
+                            <span>Pack Escouade</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-2">Chef de Bataillon</h3>
+                        <div class="text-3xl font-extrabold text-fire-400 mb-6">100€</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-200">
+                            <li class="flex items-start font-bold text-white"><i data-lucide="users" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> 2 Clés Steam Officielles (3 total !)</li>
+                            <li class="flex items-start"><i data-lucide="user-check" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Nom / Pseudo sur un casier</li>
+                            <li class="flex items-start"><i data-lucide="message-square" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Accès VIP Back stage</li>
+                            <li class="flex items-start"><i data-lucide="lightbulb" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Idée Prioritaire (ex: Véhicule)</li>
+                            <li class="flex items-start"><i data-lucide="gift" class="w-5 h-5 text-fire-400 mr-2 shrink-0"></i> Goodies</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> Toutes les récompenses précédentes</li>
+                        </ul>
+                    </div>
+
+                    <!-- Tier 5 -->
+                    <div class="bg-gray-800 rounded-2xl border border-amber-500/50 p-6 flex flex-col hover:border-amber-400 transition duration-300 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-amber-500/20 to-transparent rounded-bl-full"></div>
+                        <h3 class="text-xl font-bold text-amber-500 mb-2">Commandant</h3>
+                        <div class="text-3xl font-extrabold text-amber-500 mb-6">200€</div>
+                        <ul class="space-y-3 mb-8 flex-1 text-sm text-gray-300">
+                            <li class="flex items-start"><i data-lucide="map" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Noms de mission (Avec nom du joueur)</li>
+                            <li class="flex items-start"><i data-lucide="mic" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Enregistrement de son (Scenario custom)</li>
+                            <li class="flex items-start"><i data-lucide="radio" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Indicatif radio (Pseudo) en jeu</li>
+                            <li class="flex items-start"><i data-lucide="gamepad-2" class="w-5 h-5 text-amber-500 mr-2 shrink-0"></i> Possibilité de jouer avec les devs</li>
+                            <li class="flex items-start text-gray-500"><i data-lucide="plus" class="w-4 h-4 mr-2 mt-0.5 shrink-0"></i> Toutes les récompenses précédentes</li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="https://www.kickstarter.com/projects/1556468747/rescue-ops-wildfire-a-co-op-firefighting-simulation-game?ref=4nr3z4" target="_blank" class="inline-flex items-center justify-center space-x-2 bg-fire-600 hover:bg-fire-500 text-white px-10 py-5 rounded-xl text-xl font-bold transition glow-button shadow-xl">
+                        <span>S'abonner au Kickstarter</span>
+                        <i data-lucide="external-link" class="w-6 h-6"></i>
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500">Sécurisez vos récompenses avant le lancement de la campagne !</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-6">
+                <i data-lucide="flame" class="text-fire-600 h-6 w-6"></i>
+                <span class="text-lg font-bold tracking-wider text-white">RESCUE OPS: WILDFIRE</span>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.rescueopsgame.com/en/" target="_blank" class="text-gray-400 hover:text-white">Official Website</a>
+                <a href="https://store.steampowered.com/app/2915770/Rescue_Ops_Wildfire/" target="_blank" class="text-gray-400 hover:text-white">Steam Page</a>
+            </div>
+            <p class="text-gray-600 text-sm">
+                &copy; 2024 Rescue Ops. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+
+        // Language Toggle Logic
+        let currentLang = 'en';
+        function toggleLanguage() {
+            const btnText = document.getElementById('lang-btn-text');
+            const navLinkText = document.getElementById('nav-ks-text');
+            
+            const heroEn = document.getElementById('hero-en');
+            const heroFr = document.getElementById('hero-fr');
+            const tiersEn = document.getElementById('tiers-en');
+            const tiersFr = document.getElementById('tiers-fr');
+            
+            if (currentLang === 'en') {
+                currentLang = 'fr';
+                btnText.innerText = 'EN';
+                if(navLinkText) navLinkText.innerText = 'Sur Kickstarter';
+                
+                if(heroEn) heroEn.classList.add('hidden');
+                if(heroFr) heroFr.classList.remove('hidden');
+                if(tiersEn) tiersEn.classList.add('hidden');
+                if(tiersFr) tiersFr.classList.remove('hidden');
+            } else {
+                currentLang = 'en';
+                btnText.innerText = 'FR';
+                if(navLinkText) navLinkText.innerText = 'Back on Kickstarter';
+                
+                if(heroEn) heroEn.classList.remove('hidden');
+                if(heroFr) heroFr.classList.add('hidden');
+                if(tiersEn) tiersEn.classList.remove('hidden');
+                if(tiersFr) tiersFr.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
